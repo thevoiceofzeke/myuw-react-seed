@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Styles from '../../../style'
 import { StyleSheet, css } from 'aphrodite'
 import data from '../data'
 
@@ -7,17 +7,11 @@ import data from '../data'
 // and maintain DRY
 const Home = (props) => (
   <div>
-
     <h2 className={css(styles.header)}>About</h2>
     <p className={css(styles.lead)}>
-      This is an example react application (master-detail feed) with isomorphic rendering, async react-router routes, async redux reducers, async data fetching, and code-splitting.
+      This is a react seed application developed for UW-Madison's MyUW team, based on <a className={css(styles.link)} href='https://github.com/jaredpalmer/react-production-starter' target='_blank'>react-production-starter</a>.
     </p>
-    <h2 className={css(styles.header)}>Motivation</h2>
-    <p className={css(styles.lead)}>
-      The file size of isomorphic React apps can quickly get out of hand. Many isomorphic starter kits look awesome to begin with but yield a several megabyte javascript
-      file for the client to download. This project aims to demonstrate some possible solutions.
-    </p>
-    <h2 className={css(styles.header)}>Under the Hood</h2>
+
     <ul className={css(styles.list)}>
       {data.map((item, i) => (
         <li key={i}>
@@ -53,18 +47,11 @@ const styles = StyleSheet.create({
     padding: 0
   },
   link: {
-    display: 'block',
-    fontSize: '1.25rem',
-    margin: '0 0 .5rem',
-    lineHeight: '1.5',
-    fontWeight: 'bold',
-    color: '#08c',
-    opacity: 1,
+    color: Styles.type.linkColor,
     transition: '.2s opacity ease',
     textDecoration: 'none',
     ':hover': {
-      opacity: 0.5,
-      textDecoration: 'none'
+      textDecoration: 'underline'
     }
   }
 })

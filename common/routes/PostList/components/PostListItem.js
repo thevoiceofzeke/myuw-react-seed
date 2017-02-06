@@ -1,11 +1,13 @@
 import React from 'react'
+import ListItem from 'material-ui/List'
+import Styles from '../../../style'
 import { Link } from 'react-router'
 import { StyleSheet, css } from 'aphrodite'
 
 const PostListItem = ({ post }) => (
-  <div className={css(styles.root)}>
-    <h3><Link to={`/post/${post.slug}`} className={css(styles.title)}> {post.title} </Link></h3>
-  </div>
+  <ListItem>
+    <Link to={`/post/${post.slug}`} className={css(styles.title)}> {post.title} </Link>
+  </ListItem>
 )
 
 const styles = StyleSheet.create({
@@ -13,14 +15,10 @@ const styles = StyleSheet.create({
     margin: '0 auto 1.5rem'
   },
   title: {
-    fontSize: 28,
+    color: Styles.type.linkColor,
     textDecoration: 'none',
-    lineHeight: '1.2',
-    margin: '0 0 1.5rem',
-    color: '#000',
-    transition: '.3s opacity ease',
     ':hover': {
-      opacity: 0.5
+      textDecoration: 'underline'
     }
   }
 })

@@ -50,12 +50,12 @@ const styles = StyleSheet.create({
     color: '#555'
   },
   title: {
-    fontSize: 28,
+    fontSize: 20,
     margin: '0 auto 1.5rem',
     color: '#000'
   },
   loading: {
-    fontSize: 28,
+    fontSize: 20,
     margin: '0 auto 1.5rem',
     color: '#b7b7b7'
   }

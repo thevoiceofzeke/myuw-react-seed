@@ -1,5 +1,6 @@
 import { provideHooks } from 'redial'
 import React, { PropTypes } from 'react'
+import List from 'material-ui/List'
 import { loadPosts } from '../actions'
 import { connect } from 'react-redux'
 import PostListItem from '../components/PostListItem'
@@ -18,12 +19,15 @@ const mapStateToProps = state => ({
 const PostListPage = ({ posts }) => (
   <div className={css(styles.root)}>
     <Helmet title='Posts' />
+    <h2 className={css(styles.header)}>Example List</h2>
     {posts.isLoading &&
       <div>
         <h2 className={css(styles.title)}>Loading....</h2>
       </div>}
-    {!posts.isLoading &&
-      posts.data.map((post, i) => <PostListItem key={post.id} post={post} />)}
+    <List>
+      {!posts.isLoading &&
+        posts.data.map((post, i) => <PostListItem key={post.id} post={post} />)}
+    </List>
   </div>
 )
 
@@ -35,8 +39,13 @@ const styles = StyleSheet.create({
   root: {
     maxWidth: 500
   },
-  title: {
+  header: {
     fontSize: 28,
+    lineHeight: '1.2',
+    margin: '0 0 1rem'
+  },
+  title: {
+    fontSize: 20,
     margin: '0 auto 1.5rem',
     color: '#b7b7b7'
   }
